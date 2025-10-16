@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Контакты — БЭМ</title>
+    <link rel="stylesheet" href="../styles/style.css" />
+  </head>
+  <body>
+    <div class="page">
+      <!-- block: header -->
+      <header class="header" role="banner">
+        <h1 class="header__title">Контакты</h1>
+        <p class="header__subtitle">Я без связи и рад помогите</p>
+      </header>
+
+      <!-- block: nav -->
+      <nav class="site-nav">
+            <ul class="site-nav__list">
+                <li class="site-nav__item nav__item--active">
+                    <a class="site-nav__link" href="../index.html">Главная</a>
+                </li>
+                <li class="site-nav__item">
+                    <a class="site-nav__link" href="projects.html">Проекты</a>
+                </li>
+                <li class="site-nav__item">
+                    <a class="site-nav__link" href="diary.html">Дневник</a>
+                </li>
+                <li class="site-nav__item">
+                    <a class="site-nav__link" href="contacts.html">Контакты</a>
+                </li>
+            </ul>
+        </nav>
+
+      <!-- block: content -->
+      <main class="content" role="main">
+        <!-- block: contacts -->
+        <section class="contacts" aria-labelledby="contacts-title">
+          <h2 id="contacts-title" class="contacts__title">Мои контакты</h2>
+
+          <div class="contacts__grid">
+            <article class="contacts__card" aria-label="Электронная почта">
+              <h3 class="contacts__card-title">Электронная почта</h3>
+              <p class="contacts__card-text">doesntwork@rex.ex</p>
+            </article>
+
+            <article class="contacts__card" aria-label="Физический адрес">
+              <h3 class="contacts__card-title">Физический адрес</h3>
+              <p class="contacts__card-text">г. Москва, ул. Пингвинов 7</p>
+            </article>
+
+            <article class="contacts__card" aria-label="Телефон">
+              <h3 class="contacts__card-title">Телефон</h3>
+              <p class="contacts__card-text">+7 (123) 456-78-89</p>
+            </article>
+
+            <article class="contacts__card" aria-label="Время работы">
+              <h3 class="contacts__card-title">Время работы</h3>
+              <p class="contacts__card-text">Пн–Сб: 9:00–18:00</p>
+            </article>
+
+            <article class="contacts__card" aria-label="Социальные сети">
+              <h3 class="contacts__card-title">Социальные сети</h3>
+              <p class="contacts__card-text">Одноклассники</p>
+            </article>
+          </div>
+
+          <button id="contacts-open" class="contacts__button" type="button">Связаться со мной</button>
+        </section>
+      </main>
+
+      <!-- block: footer -->
+      <footer class="footer" role="contentinfo">
+        <p class="footer__copy">© 2025 Все права защищены</p>
+      </footer>
+    </div>
+
+    <!-- block: modal -->
+    <dialog id="contact-modal" class="modal">
+      <div class="modal__header">
+        <h2 class="modal__title">Форма обратной связи</h2>
+      </div>
+      <div class="modal__body">
+        <form id="contacts-form" class="modal__form" method="dialog" novalidate>
+          <div class="modal__group">
+            <label class="modal__label" for="name">Имя <span class="modal__required" aria-hidden="true">*</span></label>
+            <input class="modal__control" type="text" id="name" name="name" required placeholder="Иван" />
+          </div>
+          <div class="modal__group">
+            <label class="modal__label" for="phone">Телефон <span class="modal__required" aria-hidden="true">*</span></label>
+            <input class="modal__control" type="tel" id="phone" name="phone" required placeholder="+7 (XXX) XXX-XX-XX" />
+          </div>
+          <div class="modal__group">
+            <label class="modal__label" for="email">Электронная почта <span class="modal__required" aria-hidden="true">*</span></label>
+            <input class="modal__control" type="email" id="email" name="email" required placeholder="example@mail.ru" />
+          </div>
+          <div class="modal__group">
+            <label class="modal__label" for="category">Категория обращения <span class="modal__required" aria-hidden="true">*</span></label>
+            <select class="modal__control" id="category" name="category" required>
+              <option value="">Выберите категорию</option>
+              <option value="technical">Техническая поддержка</option>
+              <option value="commercial">Коммерческое предложение</option>
+              <option value="cooperation">Сотрудничество</option>
+              <option value="complaint">Жалоба</option>
+              <option value="suggestion">Предложение</option>
+              <option value="other">Другое</option>
+            </select>
+          </div>
+          <div class="modal__group">
+            <label class="modal__label" for="message">Текст обращения <span class="modal__required" aria-hidden="true">*</span></label>
+            <textarea class="modal__control modal__control--area" id="message" name="message" required placeholder="Опишите вашу проблему или вопрос..."></textarea>
+          </div>
+          <div class="modal__actions">
+            <button type="submit" id="contacts-cancel" class="btn btn--secondary">Отмена</button>
+            <button type="button" id="contacts-send" class="btn btn--primary">Отправить</button>
+          </div>
+        </form>
+      </div>
+    </dialog>
+
+    <script>
+      (function () {
+        const dlg = document.getElementById('contact-modal');
+        const openBtn = document.getElementById('contacts-open');
+        const cancelBtn = document.getElementById('contacts-cancel');
+        const sendBtn = document.getElementById('contacts-send');
+        const form = document.getElementById('contacts-form');
+        const phone = document.getElementById('phone');
+        if (!dlg || !openBtn || !form) return;
+
+        let lastActive = null;
+        openBtn.addEventListener('click', () => {
+          lastActive = document.activeElement; dlg.showModal();
+          dlg.querySelector('input, select, textarea, button')?.focus();
+        });
+        cancelBtn?.addEventListener('click', (e) => { e.preventDefault(); dlg.close('cancel'); });
+        dlg?.addEventListener('click', (e) => { if (e.target === dlg) dlg.close(); });
+
+        sendBtn?.addEventListener('click', (e) => {
+          [...form.elements].forEach(el => el.setCustomValidity?.(''));
+          if (!form.checkValidity()) {
+            e.preventDefault();
+            const email = form.elements.email;
+            if (email?.validity.typeMismatch) {
+              email.setCustomValidity('Введите корректный e-mail, например name@example.com');
+            }
+            form.reportValidity();
+            [...form.elements].forEach(el => { if (el.willValidate) el.toggleAttribute('aria-invalid', !el.checkValidity()); });
+            return;
+          }
+          e.preventDefault();
+          alert('Форма отправлена, верь в ответ');
+          dlg.close('success');
+          form.reset();
+          [...form.elements].forEach(el => el.removeAttribute('aria-invalid'));
+        });
+
+        phone?.addEventListener('input', () => {
+          const digits = phone.value.replace(/\D/g, '').slice(0, 11);
+          const d = digits.replace(/^8/, '7');
+          const parts = [];
+          if (d.length > 0) parts.push('+7');
+          if (d.length > 1) parts.push(' (' + d.slice(1, 4));
+          if (d.length >= 4) parts[parts.length - 1] += ')';
+          if (d.length >= 5) parts.push(' ' + d.slice(4, 7));
+          if (d.length >= 8) parts.push('-' + d.slice(7, 9));
+          if (d.length >= 10) parts.push('-' + d.slice(9, 11));
+          phone.value = parts.join('');
+        });
+
+        dlg.addEventListener('close', () => lastActive?.focus());
+      })();
+    </script>
+  </body>
+</html>
