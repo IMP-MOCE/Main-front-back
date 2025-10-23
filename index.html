@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Главная - Портфолио</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -13,6 +13,8 @@
     <!-- Основной контейнер -->
     <div class="page">
         
+        <a class="skip-link" href="#main">Перейти к основному содержимому</a>  
+
         <!-- Шапка -->
         <header class="header">
             <h1 class="header__title">Моё портфолио</h1>
@@ -37,12 +39,36 @@
         </nav>
 
         <!-- Основной контент -->
-        <main class="main">
+        <main class="main">            <a name = 'main'></a>
             
             <!-- Профиль -->
             <section class="profile">
                 <div class="profile__card">
-                    <img class="profile__photo" src="images/profile.jpg" alt="Фото">
+                    <figure class="hero__image">
+                        <picture>
+                        <!-- Современные форматы -->
+                        <source
+                            type="image/avif"
+                            srcset="images/profile.avif 150w, images/profile.avif 200w,
+                            images/profile.avif 300w"
+                            sizes="200px">
+                        <source
+                            type="image/webp"
+                            srcset="images/hero-150.webp 150w, images/hero-200.webp 200w,
+                            images/hero-300.webp 300w"
+                            sizes="200px">
+                        <!-- Запасной JPEG -->
+                        <img class="hero__photo"
+                            src="images/profile.jpg"
+                            srcset="images/hero-150.jpg 150w, images/hero-200.jpg 200w,
+                            images/hero-300.jpg 300w"
+                            sizes="200px"
+                            width="200" height="200"
+                            alt="Портрет студента"
+                            fetchpriority="high"
+                            loading="lazy">
+                        </picture>
+                    </figure>
                     <div class="profile__info">
                         <h2 class="profile__name">Осадчев Никита</h2>
                         <p class="profile__group">ЭФБО-04-24</p>
@@ -78,7 +104,7 @@
                     </div>
                 </div>
             </section>
-    
+
             <!-- Проекты -->
             <section class="projects">
                 <h2 class="projects__title">Проекты</h2>
@@ -90,21 +116,21 @@
                     </div>
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                        <img src="images/game.png" class="d-block w-100" alt="...">
+                        <img src="images/game.png" class="d-block w-100" alt="..." loading="lazy">
                         <div class="carousel-caption d-none d-md-block">
                             <h5>Game Develop</h5>
                             <p>Игра OpenGL</p>
                         </div>
                         </div>
                         <div class="carousel-item">
-                        <img src="images/db.jpg" class="d-block w-100" alt="...">
+                        <img src="images/db.jpg" class="d-block w-100" alt="..." loading="lazy">
                         <div class="carousel-caption d-none d-md-block">
                             <h5>DataBase</h5>
                             <p>Схема на PostgreSQL</p>
                         </div>
                         </div>
                         <div class="carousel-item">
-                        <img src="images/site.png" class="d-block w-100" alt="...">
+                        <img src="images/site.png" class="d-block w-100" alt="..." loading="lazy">
                         <div class="carousel-caption d-none d-md-block">
                             <h5>WEB</h5>
                             <p>Сайт HTML+CSS+JS.</p>
@@ -125,10 +151,11 @@
 
         </main>
 
-        <!-- Подвал -->
-        <footer class="footer">
-            <p class="footer__text">&copy; 2024 Мой сайт</p>
-        </footer>
+              <!-- block: footer -->
+      <footer class="footer" role="contentinfo">
+        <p class="footer__copy">© 2025</p>
+      </footer>
+    </div>
     </div>
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Проекты</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -12,7 +12,7 @@
 <body>
     <!-- Основной контейнер -->
     <div class="page">
-        
+        <a class="skip-link" href="#main">Перейти к основному содержимому</a>  
         <!-- Шапка -->
         <header class="header">
             <h1 class="header__title">Мои проекты</h1>
@@ -37,7 +37,7 @@
         </nav>
 
     <!-- block: content -->
-    <main class="content" role="main">
+    <main class="content" role="main"> <a name = 'main'></a>
       <!-- block: catalog -->
       <section class="catalog" aria-labelledby="catalog-title">
         <h2 id="catalog-title" class="catalog__title">Мои проекты</h2>
@@ -56,12 +56,12 @@
         </label>
         </section>
 
-
+      <section class = 'project-area'>
         <div class="catalog__grid">
           <!-- block: product -->
           <article class="product" aria-label="Сайт" data-tags = "HTML">
             <div class="product__media">
-              <img class="product__image" src="../images/site.png" alt="Сайт" />
+              <img class="product__image" src="../images/site.png" alt="Сайт" loading="lazy" />
             </div>
             <div class="product__body">
               <h3 class="product__title">Простой сайт</h3>
@@ -81,7 +81,7 @@
 
           <article class="product" aria-label="База данных" data-tags="SQL">
             <div class="product__media">
-              <img class="product__image" src="../images/db.jpg" alt="База данных" />
+              <img class="product__image" src="../images/db.jpg" alt="База данных" loading="lazy"/>
             </div>
             <div class="product__body">
               <h3 class="product__title">База данных</h3>
@@ -101,7 +101,7 @@
 
           <article class="product" aria-label="Игра-лабиринт" data-tags = "OpenGL">
             <div class="product__media">
-              <img class="product__image" src="../images/game.png" alt="Игра-лабиринт" />
+              <img class="product__image" src="../images/game.png" alt="Игра-лабиринт" loading="lazy"/>
             </div>
             <div class="product__body">
               <h3 class="product__title">Игра-лабиринт</h3>
@@ -120,6 +120,11 @@
           </article>
         </div>
       </section>
+            <!-- block: footer -->
+      <footer class="footer" role="contentinfo">
+        <p class="footer__copy">© 2025</p>
+      </footer>
+    </div>
     </main>
 </div>
 <div class="pr-modal" id="catalog-modal" hidden>
@@ -129,7 +134,7 @@
     <button class="pr-modal__close" type="button" aria-label="Закрыть" data-close>×</button>
 
     <header class="pr-modal__header">
-      <img class="pr-modal__image" alt="" />
+      <img class="pr-modal__image" alt="" loading="lazy"/>
       <h3 class="pr-modal__title" id="catalog-modal-title"></h3>
       <p class="pr-modal__subtitle"></p>
     </header>

@@ -11,7 +11,6 @@ document.querySelectorAll('.skill').forEach(skill => {
         tip.textContent = skill.dataset.progress;
         skill.dataset.showTooltip = '1';
         skill.style.setProperty('--p', '100%');
-        console.log('ok');
     });
 
     skill.addEventListener('mouseleave', () => {

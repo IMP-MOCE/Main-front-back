@@ -2,14 +2,14 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Главная - Портфолио</title>
     <link rel="stylesheet" href="../styles/style.css">
 </head>
 <body>
     <!-- Основной контейнер -->
     <div class="page">
-        
+        <a class="skip-link" href="#main">Перейти к основному содержимому</a>  
         <!-- Шапка -->
         <header class="header">
             <h1 class="header__title">Мой Учебный прогресс</h1>
@@ -34,7 +34,7 @@
         </nav>
 
         <!-- Основной контент -->
-        <main class="main">
+        <main class="main"> <a name = 'main'> </a>
             
             <section class="dash diary-card">
       <div class="dash timeline">
@@ -115,9 +115,11 @@
       </div>
     </section>
 
-    <section class="footer" aria-label="Подвал">
-      © 2024 Контакты
-    </section>
+      <!-- block: footer -->
+      <footer class="footer" role="contentinfo">
+        <p class="footer__copy">© 2025</p>
+      </footer>
+    </div>
   </main>
 </body>
 </html>
