@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="description" content="Контакты студента с формой обратной связи.">    
     <title>Контакты — БЭМ</title>
     <link rel="stylesheet" href="../styles/style.css" />
   </head>
@@ -16,9 +17,9 @@
       </header>
 
       <!-- block: nav -->
-      <nav class="site-nav">
+      <nav class="site-nav" aria-label = "Основная навигация">
             <ul class="site-nav__list">
-                <li class="site-nav__item nav__item--active">
+                <li class="site-nav__item">
                     <a class="site-nav__link" href="../index.html">Главная</a>
                 </li>
                 <li class="site-nav__item">
@@ -27,14 +28,14 @@
                 <li class="site-nav__item">
                     <a class="site-nav__link" href="diary.html">Дневник</a>
                 </li>
-                <li class="site-nav__item">
+                <li class="site-nav__item  nav__item--active">
                     <a class="site-nav__link" href="contacts.html">Контакты</a>
                 </li>
             </ul>
         </nav>
 
       <!-- block: content -->
-      <main class="content" role="main"> <a name = 'main'></a>
+      <main class="content" role="main" aria-label="Основная информация"> <a name = 'main'></a>
         <!-- block: contacts -->
         <section class="contacts" aria-labelledby="contacts-title">
           <h2 id="contacts-title" class="contacts__title">Мои контакты</h2>
